@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Database Query</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      var queryIndex = 0;
+      function getQueary(index) {
+        var query = $('#query-input').val();
+          $.ajax({
+            type: 'GET',
+            url: 'http://localhost:3000/exercises?select=' + encodeURIComponent(query),
+            success: function(result) {
+              $('#name').html(
+                result[index].name
+                );
+              $('#Force').html(
+                result[index].force
+                );
+              $('#level').html(
+                result[index].level
+                );
+              $('#equipment').html(
+                result[index].equipment
+                );
+              $('#category').html(
+                result[index].category
+                );
+              $('#instructions').html(
+                result[index].instructions
+                );
+              $('#description').html(
+                result[index].description
+                );
+              $('#tips').html(
+                result[index].tips
+                );
+            },
+            error: function() {
+              alert('Error occurred while processing the query.');
+            }
+          });
+      }
+
+      $(document).ready(function() {
+        $('#submit-btn').click(function() {
+          queryIndex = 0;
+          getQueary(queryIndex)
+        });
+        $('#next-btn').click(function() {
+          queryIndex += 1
+          getQueary(queryIndex)
+        });
+      });
+    </script>
+
+
+  </head>
+  <body>
+    <label for="query-input">Enter your query:</label>
+    <input type="text" id="query-input">
+    <button id="submit-btn">Submit</button>
+    <div id="result">
+      <table>
+        <tr>
+          <th align="Left">Name: </th>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <th align="Left">Force: </th>
+          <td id="Force"></td>
+        </tr>
+        <tr>
+          <th align="Left">Level: </th>
+          <td id="level"></td>
+        </tr>
+        <tr>
+          <th align="Left">Equipment: </th>
+          <td id="equipment"></td>
+        </tr>
+        <tr>
+          <th align="Left">category: </th>
+          <td id="category"></td>
+        </tr>
+        <tr>
+          <th align="Left">Instructions: </th>
+          <td id="instructions"></td>
+        </tr>
+        <tr>
+          <th align="Left">Description: </th>
+          <td id="description"></td>
+        </tr>
+        <tr>
+          <th align="Left">Tips: </th>
+          <td id="tips"></td>
+        </tr>
+      </table>
+    </div>
+    <button id="next-btn">Next</button>
+  </body>
+</html>

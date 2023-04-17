@@ -1,0 +1,5 @@
+<h1>Excercises</h1>
+<% @exercises.each do |exercise| %>
+    <a href="<%= "/exercises/#{exercise[:name]}" %>"><%= exercise[:name] %></a>
+    <br>
+<% end %>

@@ -1,0 +1,26 @@
+<script >
+    document.addEventListener('DOMContentLoaded', () => {
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                fetch(
+                    form.action,
+                    {
+                        method: 'PATCH',
+                        body: new FormData(form)
+                    }
+                )
+            })
+        })
+    })
+</script>
+
+<h1> <%=@exercise[:name] %> </h1>
+ 
+<form method="post" action="<%= "/exercises/#{@exercise[:name]}" %>">
+    <input type="hidden" name="id" value="<%= @exercise[:id] %>">
+    <label for="name"> Name </label>
+    <input id="name" name="name" value="<%= @exercise.name %>">
+    <input type="submit" value="Submit Changes">
+</form>

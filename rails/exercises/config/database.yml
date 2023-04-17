@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: 192.168.86.30
+  database: exercises-db
+  username: postgres
+  password: postgres
+  port: 5432
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

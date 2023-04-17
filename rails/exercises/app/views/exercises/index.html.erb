@@ -1,5 +1,8 @@
-<h1>Excercises</h1>
-<% @exercises.each do |exercise| %>
-    <a href="<%= "/exercises/#{exercise[:name]}" %>"><%= exercise[:name] %></a>
-    <br>
-<% end %>
+<h1>Exercises</h1>
+<nav>
+    <% @exercises.each do |exercise| %>
+        <button data-row-id="<%= exercise[:id] %>"><%= exercise[:name] %></button>
+    <% end %>
+</nav>
+<div class="editor">
+</div>

@@ -1,4 +1,4 @@
-<h2> <%=@exercise[:name] %> </h2>
+<h2> <%= @exercise[:name] %> </h2>
  
 <form method="post" action="<%= "/exercises/#{@exercise[:name]}" %>">
     <input type="hidden" name="id" value="<%= @exercise[:id] %>">

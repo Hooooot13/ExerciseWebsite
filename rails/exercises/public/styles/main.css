@@ -39,3 +39,9 @@ body > nav > button {
     text-align: left;
     padding: .35rem .5rem;
 }
+.editor {
+    align-self: start;
+    padding: .5rem 2rem;
+    overflow-y: auto;
+    max-height: 100%;
+}

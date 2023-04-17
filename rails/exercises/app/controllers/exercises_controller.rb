@@ -3,6 +3,6 @@ class ExercisesController < ApplicationController
         @exercises = Exercise.all.sort_by &:name
     end
     def show
-        @exercise = Exercise.find_by name: params[:name]
+        @exercise = Exercise.find params[:id]
     end
 end

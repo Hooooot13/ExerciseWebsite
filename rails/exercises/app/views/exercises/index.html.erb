@@ -1,5 +1,24 @@
-<h1>Excercises</h1>
-<% @exercises.each do |exercise| %>
-    <a href="<%= "/exercises/#{exercise[:name]}" %>"><%= exercise[:name] %></a>
-    <br>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercises</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script defer src="/scripts/main.js"></script>
+  </head>
+  <body>
+    <h1>Exercises</h1>
+    <nav>
+      <% @exercises.each do |exercise| %>
+          <button 
+            data-row-id="<%= exercise[:id] %>">
+            <%= exercise[:name] %>
+          </button>
+      <% end %>
+    </nav>
+    <div class="editor">
+    </div>
+  </body>
+</html>

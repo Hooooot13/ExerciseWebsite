@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    font: 1rem/1 sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+body {
+    display: grid;
+    margin: 0;
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 3rem 1fr;
+    align-items: center;
+    height: 100vh;
+    gap: 1px 0;
+}
+
+body > h1 {
+    grid-column: span 2;
+    margin: 0;
+    line-height: 3rem;
+    padding-inline-start: 1rem;
+    border-bottom: 1px solid hsl(0, 0%, 50%);
+}
+body > nav {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: .25rem;
+    overflow-y: auto;
+    max-height: 100%;
+}
+body > nav > button {
+    font: .9rem/1 sans-serif;
+    text-align: left;
+    padding: .35rem .5rem;
+}
+.editor {
+    align-self: start;
+    padding: .5rem 2rem;
+    overflow-y: auto;
+    max-height: 100%;
+}
+.editor tbody :is(th,td) {
+    padding: .25rem .35rem;
+}
+.editor input,
+.editor button {
+    padding: .25rem .35rem;
+}
+#id input {
+    width: calc(36ch + 2*.35rem + 4px);
+    font-family: monospace;
+}

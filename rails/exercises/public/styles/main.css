@@ -45,3 +45,14 @@ body > nav > button {
     overflow-y: auto;
     max-height: 100%;
 }
+.editor tbody :is(th,td) {
+    padding: .25rem .35rem;
+}
+.editor input,
+.editor button {
+    padding: .25rem .35rem;
+}
+#id input {
+    width: calc(36ch + 2*.35rem + 4px);
+    font-family: monospace;
+}

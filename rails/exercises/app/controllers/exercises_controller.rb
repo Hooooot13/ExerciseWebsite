@@ -5,4 +5,8 @@ class ExercisesController < ApplicationController
     def show
         @exercise = Exercise.find params[:id]
     end
+    def update
+        exercise = Exercise.find params[:id]
+        exercise.update params.permit(:name)
+    end
 end
